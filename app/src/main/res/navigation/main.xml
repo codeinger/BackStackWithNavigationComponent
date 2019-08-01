@@ -4,7 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/AFragment">
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.circularlogic.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_AFragment"
+            app:destination="@id/AFragment"
+            app:popUpTo="@+id/splashFragment"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
 
     <fragment
         android:id="@+id/AFragment"
@@ -40,14 +56,20 @@
         android:label="C"
         tools:layout="@layout/fragment_c" >
         <action
-            android:id="@+id/action_CFragment_to_AFragment"
-            app:destination="@id/AFragment"
-            app:popUpTo="@+id/AFragment"
-            app:popUpToInclusive="true"
+            android:id="@+id/action_CFragment_to_DFragment"
+            app:destination="@id/DFragment"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/BFragment"/>
     </fragment>
+    <fragment
+        android:id="@+id/DFragment"
+        android:name="com.example.circularlogic.DFragment"
+        android:label="D"
+        tools:layout="@layout/fragment_d" />
+
 
 </navigation>
